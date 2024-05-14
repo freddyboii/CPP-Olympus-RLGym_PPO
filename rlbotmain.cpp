@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
         .policyPath = policyPath,
         .obsSize = 237,
         .policyLayerSizes = { 2048, 1024, 1024, 1024 },
-        .tickSkip = 8
+        .tickSkip = 12
     };
     RLBotClient::Run(params);
 

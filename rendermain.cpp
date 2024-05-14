@@ -187,14 +187,14 @@ int threads = 15;
 int GamesPerThread = 10;
 
 EnvCreateResult EnvCreateFunc() {
-    constexpr int TICK_SKIP = 8;
+    constexpr int TICK_SKIP = 12;
     constexpr float NO_TOUCH_TIMEOUT_SECS = 10.f;
     
     
     // Use a random number generator to decide the team size
 std::random_device rd; // Will be used to obtain a seed for the random number engine
 std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-std::uniform_int_distribution<> distrib(1, 2);
+std::uniform_int_distribution<> distrib(1, 1);
 
 int team_size = distrib(gen); // Generate a random team size between 1 and 3
 
@@ -298,7 +298,7 @@ int main() {
 	
     cfg.ppo.autocastLearn = false;
 	 
-	cfg.deterministic = false;
+	cfg.deterministic = true;
 
 	cfg.metricsProjectName = "Olympus-v1.1"; // Project name for the python metrics receiver
     cfg.metricsGroupName = "Official"; // Group name for the python metrics receiver
