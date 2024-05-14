@@ -1,7 +1,6 @@
 #pragma once
 #include "../Gamestates/GameState.h"
 #include "../BasicTypes/Action.h"
-
 // https://github.com/AechPro/rocket-league-gym-sim/blob/main/rlgym_sim/utils/reward_functions/reward_function.py
 namespace RLGSC {
 	class RewardFunction {
@@ -32,6 +31,13 @@ namespace RLGSC {
 			}
 
 			return rewards;
+		}
+		
+		virtual float graphR(const std::string& rewardName, const PlayerData& player, const GameState& state) {
+			if (rewardName == "VelocityReward") {
+				return GetReward(player, state, Action());
+			}
+			return 0.0f; 
 		}
 
 		virtual ~RewardFunction() {};
